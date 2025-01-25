@@ -1,0 +1,21 @@
+- hosts: web
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Pull Nginx image
+      docker_image:
+        name: nginx
+        source: pull
+
+    - name: Run Nginx container
+      docker_container:
+        name: nginx
+        image: nginx
+        state: started
+        ports:
+          - "8080:80"
