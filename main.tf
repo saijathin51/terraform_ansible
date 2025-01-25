@@ -6,7 +6,7 @@ provider "aws" {
 
 
 resource "aws_security_group" "nginx_sg" {
-  name        = "nginx-security-groupb"
+  name        = "nginx-security-group"
   description = "Allow HTTP and SSH traffic"
 
   ingress {
